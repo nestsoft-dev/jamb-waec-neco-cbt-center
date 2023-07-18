@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/box_home.dart';
+import '../widgets/my_grid.dart';
+import '../widgets/my_slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   //     });
   //   }
   // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,51 +73,9 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 10,
             ),
-            Container(
-              height: 550,
-              child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    childAspectRatio: 1.7,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                  ),
-                  itemCount: 6,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.grey[100],
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color.fromARGB(255, 224, 224, 224),
-                              offset: Offset(4, 4),
-                              blurRadius: 10,
-                              spreadRadius: 1,
-                            ),
-                            BoxShadow(
-                              color: Colors.white,
-                              offset: Offset(-4, -4),
-                              blurRadius: 10,
-                              spreadRadius: 1,
-                            ),
-                          ]),
-                      child: Column(
-                        children: [
-                          Image.asset('assets/cbt.png'),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text('3.74',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold))
-                        ],
-                      ),
-                    );
-                  }),
-            ),
+            MyGrid(),
+            SizedBox(height: 15,),
+            MySlider()
           ]),
         ),
       ),
