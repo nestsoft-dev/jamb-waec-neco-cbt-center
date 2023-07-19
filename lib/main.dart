@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_practice_pal/page/bottom_page.dart';
 import 'package:new_practice_pal/screens/books.dart';
 import 'package:new_practice_pal/screens/compete.dart';
 import 'package:new_practice_pal/screens/epin.dart';
@@ -34,9 +35,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      // home: const SplashScreen(),
+      home: const SplashScreen(),
       // home: const SingleQuestion(),
-      home: const SelectSingleSubject(),
+      //home: const BottomPage(),
     );
   }
 }

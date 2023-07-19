@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../screens/books.dart';
+import '../screens/games.dart';
+import '../screens/select_subject.dart';
+
 class MyGrid extends StatelessWidget {
   MyGrid({super.key});
   List<String> names = [
@@ -10,6 +14,31 @@ class MyGrid extends StatelessWidget {
     'BOOKS',
     'GAMES',
   ];
+
+  screens(int index) {
+    if (index == 0) {
+      return SelectSingleSubject(
+        type: 'JAMB',
+      );
+    } else if (index == 1) {
+      return SelectSingleSubject(
+        type: 'WAEC',
+      );
+    } else if (index == 2) {
+      return SelectSingleSubject(
+        type: 'NECO',
+      );
+    } else if (index == 3) {
+      return SelectSingleSubject(
+        type: 'QUIZ',
+      );
+    } else if (index == 4) {
+      return Books();
+    } else if (index == 5) {
+      return Games();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,45 +56,51 @@ class MyGrid extends StatelessWidget {
           ),
           itemCount: 6,
           itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.grey[100],
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color.fromARGB(255, 224, 224, 224),
-                      offset: Offset(4, 4),
-                      blurRadius: 10,
-                      spreadRadius: 1,
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => screens(index)));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.grey[100],
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color.fromARGB(255, 224, 224, 224),
+                        offset: Offset(4, 4),
+                        blurRadius: 10,
+                        spreadRadius: 1,
+                      ),
+                      BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(-4, -4),
+                        blurRadius: 10,
+                        spreadRadius: 1,
+                      ),
+                    ]),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'assets/cbt.png',
+                        height: 80,
+                      ),
                     ),
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(-4, -4),
-                      blurRadius: 10,
-                      spreadRadius: 1,
+                    SizedBox(
+                      height: 2,
                     ),
-                  ]),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      'assets/cbt.png',
-                      height: 80,
+                    Text(names[index],
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(
+                      height: 5,
                     ),
-                  ),
-                  SizedBox(
-                    height: 2,
-                  ),
-                  Text(names[index],
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold)),
-                  SizedBox(
-                    height: 5,
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           }),

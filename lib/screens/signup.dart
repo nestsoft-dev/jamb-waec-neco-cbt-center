@@ -1,6 +1,8 @@
+import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import '../page/bottom_page.dart';
 import '../widgets/textfield.dart';
 import 'login.dart';
 
@@ -115,7 +117,7 @@ class _SignUpState extends State<SignUp> {
                         hint: 'Enter Confirm Password',
                         ispassword: true,
                         maxlength: 25,
-                        textEditingController: password,
+                        textEditingController: confirmPassword,
                         textInputType: TextInputType.name,
                       ),
                       SizedBox(
@@ -123,10 +125,26 @@ class _SignUpState extends State<SignUp> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignUp()));
+                          if(name.text ==''||email.text==''||password.text==''||confirmPassword.text==''){
+                               CoolAlert.show(
+                                context: context,
+                                type: CoolAlertType.error,
+                                text: "Please Fill the form",
+                                title: "Error");
+                          }else if(password.text != confirmPassword.text){
+                               CoolAlert.show(
+                                context: context,
+                                type: CoolAlertType.error,
+                                text: "Password and confirm password dont match",
+                                title: "Error");
+                          }else{
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BottomPage()));
+                          }
+                          //&&
+                      
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
