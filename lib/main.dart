@@ -3,6 +3,8 @@ import 'package:new_practice_pal/screens/books.dart';
 import 'package:new_practice_pal/screens/compete.dart';
 import 'package:new_practice_pal/screens/epin.dart';
 import 'package:new_practice_pal/screens/home.dart';
+import 'package:new_practice_pal/screens/profile.dart';
+import 'package:new_practice_pal/screens/select_subject.dart';
 import 'package:new_practice_pal/screens/single_question.dart';
 import 'package:new_practice_pal/screens/splash.dart';
 import 'package:new_practice_pal/widgets/my_slider.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: const SplashScreen(),
       // home: const SingleQuestion(),
-      home: const HomePage(),
+      home: const SelectSingleSubject(),
     );
   }
 }
