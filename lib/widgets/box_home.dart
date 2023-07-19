@@ -47,6 +47,7 @@ class MyBox extends StatelessWidget {
                   ],
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Total Points'),
                     SizedBox(
