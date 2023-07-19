@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/box_home.dart';
@@ -35,48 +36,61 @@ class _HomePageState extends State<HomePage> {
   //   }
   // }
 
+  final List<String> imageList = [
+    'assets/first.png',
+    'assets/fourth.png',
+    'assets/logo_o.png',
+    'assets/second.png',
+    'assets/third.png',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Welcome',
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.grey[300],
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    'Ikenna',
-                    style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Welcome',
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.grey[300],
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Ikenna',
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            MyBox(),
-            SizedBox(
-              height: 10,
-            ),
-            MyGrid(),
-            SizedBox(height: 15,),
-            MySlider()
-          ]),
+              SizedBox(
+                height: 10,
+              ),
+              MyBox(),
+              SizedBox(
+                height: 10,
+              ),
+             MySlider(),
+
+              SizedBox(
+                height: 15,
+              ),
+              MyGrid(),
+            ]),
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Compete extends StatefulWidget {
   const Compete({super.key});
@@ -10,6 +11,8 @@ class Compete extends StatefulWidget {
 class _CompeteState extends State<Compete> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Center(child: Text('No Competition Available Now')),
+    );
   }
 }

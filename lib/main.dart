@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:new_practice_pal/screens/books.dart';
+import 'package:new_practice_pal/screens/compete.dart';
+import 'package:new_practice_pal/screens/epin.dart';
+import 'package:new_practice_pal/screens/home.dart';
 import 'package:new_practice_pal/screens/splash.dart';
+import 'package:new_practice_pal/widgets/my_slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +25,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PRactice pal pro',
+      debugShowCheckedModeBanner: false,
+      title: 'Practice pal pro',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
+      home: const Epins(),
     );
   }
 }
